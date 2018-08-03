@@ -1,2 +1,3 @@
 # Vince Koch
-[StyleCop](https://vince-koch.github.io/stylecop/stylecop.html)
+[Index] (https://vince-koch.github.io/index.html)
+[StyleCop Rule Lookup](https://vince-koch.github.io/stylecop/StylecopRuleLookup.html)
