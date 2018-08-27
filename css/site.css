@@ -1,0 +1,17 @@
+body {
+    background-color: whitesmoke;
+    color: gray;
+}
+.title {
+    border-bottom: 1px solid gray;
+    margin-bottom: 5px;
+}
+.title * {
+    vertical-align: middle;
+}
+.title span {
+    font-size: 32px;
+}
+figcaption {
+    font-weight: bold;
+}

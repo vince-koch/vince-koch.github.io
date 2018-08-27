@@ -1,0 +1,20 @@
+<html>
+<head>
+</head>
+<body>
+    <h3>Enable Tracing for an ASP.NET Application</h3>
+    <p>Add the following configuration to your <strong>Web.config</strong> file.</p>
+    <code>
+        <pre>
+        &lt;configuration&gt;
+          &lt;system.web&gt;
+            &lt;trace enabled="true" pageOutput="false" requestLimit="40" localOnly="false"/&gt;
+          &lt;/system.web&gt;
+        &lt;/configuration&gt;
+        </pre>
+    </code>
+
+    <p>You can then navigate to <strong>Trace.axd</strong> in the root of your application.
+    <p>For example, if the URL for your application is http://localhost/SampleApplication, navigate to http://localhost/SampleApplication/trace.axd to view the trace information for that application.</p>
+</body>
+<html>
