@@ -1,12 +1,37 @@
+function getCleanRuleId()
+{
+    // get the rule id input element element
+    var ruleIdElement = document.getElementById("ruleId");
+    
+    // make sure its upper case
+    var ruleId = ruleIdElement.value.toUpperCase();
+    
+    // remove dash
+    var indexOfDash = ruleId.indexOf("-");
+    if (indexOfDash > -1)
+    {
+        ruleId = ruleId.slice(0, indexOfDash) + ruleId.slice(indexOfDash + 1, ruleId.length);
+    }
+    
+    // prefix it with SA if they didn't
+    if (!ruleId.startsWith("SA"))
+    {
+        ruleId = "SA" + ruleId;
+    }
+    
+    // update the input element with the cleaned id
+    ruleIdElement.value = ruleId;
+    
+    return ruleId;
+}
+
 function searchForRule()
 {
     // blank out result
     var ruleAttributeElement = document.getElementById("ruleAttribute");
     ruleAttributeElement.innerText = "";
 
-    // get the rule value to search for
-    var ruleIdElement = document.getElementById("ruleId");
-    var ruleId = ruleIdElement.value;
+    var ruleId = getCleanRuleId();
     
     // get all the rules and then find the appropriate one
     var rules = Array.from(document.getElementsByTagName("li"));
