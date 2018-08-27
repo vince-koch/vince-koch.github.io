@@ -1,73 +1,36 @@
 <html>
 <head>
+<head>
 	<title>StyleCop Rules</title>
-	<style>
-		body { font-family: verdana; font-size: small; }
-		h4 { color: cadetblue; }
-		p { color: darkgray; font-style: italic; margin-left: 25px; }
-	</style>
-	<script>	
-		function searchForRule()
-		{
-			// blank out result
-			var ruleAttributeElement = document.getElementById("ruleAttribute");
-			ruleAttributeElement.innerText = "";
-
-			// get the rule value to search for
-			var ruleIdElement = document.getElementById("ruleId");
-			var ruleId = ruleIdElement.value;
-			
-			// get all the rules and then find the appropriate one
-			var rules = Array.from(document.getElementsByTagName("li"));
-			var filteredRules = rules.filter(r => r.innerText.startsWith(ruleId + ":"));
-			if (filteredRules.length == 0)
-			{
-				ruleAttributeElement.innerText = "Unable to locate rule " + ruleId;
-				return;
-			}
-			else if (filteredRules.length > 1)
-			{
-				ruleAttributeElement.innerText = "Multiple matches found for rule " + ruleId;
-			}
-			
-			// get the attribute text from the prior <p> tag
-			var elementLi = filteredRules[0];
-			var elementUl = elementLi.parentElement;
-			var elementP = elementUl.previousElementSibling;
-			var attributeText = elementP.innerText;
-
-			// assign the text to our tag
-			ruleAttributeElement.innerText = attributeText.substring(0, attributeText.indexOf(","))
-				+ ", \"" + elementLi.innerText + "\""
-				+ ", Justification = \"Reviewed\")]";
-		}
-		
-		function handleRuleIdKeyUp(e)
-		{
-			if (e.keyCode == 13)
-			{
-				searchForRule();
-				e.preventDefault();
-			}
-		}
-		
-		window.onload = function()
-		{
-			document.getElementById("ruleId").focus();
-		}
-	</script>
+	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+	<link rel="stylesheet" type="text/css" href="/css/reset.css">
+	<link rel="stylesheet" type="text/css" href="/css/milligram.1.3.0.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/site.css">
+    <link rel="stylesheet" type="text/css" href="StyleCopRuleLookup.css">
+    <script src="StyleCopRuleLookup.js"></script>
 </head>
 <body>
+	<div class="container">
+		<div class="row title">
+			<div class="column column-90">
+				<a href="/index.html"><img src="/favicon.ico" width="48" height="48"></a>
+				<span>Cookie's Crumbs: StyleCop 4.5 Rules</span>
+			</div>
+			<div class="column column-10" style="text-align:right;">
+				<a style="vertical-align: middle;" href="https://github.com/vince-koch/vince-koch.github.io">source</a>
+			</div>
+		</div>
 
-	<h2>StyleCop 4.5 Rules</h2>
-	
-	<div>
-		<h4>Rule Lookup</h4>
-		<input id="ruleId" type="text" placeholder="Rule (IE: SA1650)" onkeyup="handleRuleIdKeyUp(event)" />
-		<button onclick="searchForRule()">search</button>
-		<p id="ruleAttribute"></p>
-	</div>
-
+		<div class="row">
+            <div class="column">
+                <h4>Rule Lookup</h4>
+                <input id="ruleId" type="text" placeholder="Rule (IE: SA1650)" onkeyup="handleRuleIdKeyUp(event)" />
+                <button onclick="searchForRule()">search</button>
+                <p id="ruleAttribute"></p>
+            </div>
+        </div>
+    </div>
+    
 	<div>
 		<h4>Spacing Rules (SA1000-)</h4>
 		<p>Rules which enforce spacing requirements around keywords and symbols in the code.</p>

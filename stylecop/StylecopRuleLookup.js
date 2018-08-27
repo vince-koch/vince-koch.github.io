@@ -1,0 +1,48 @@
+function searchForRule()
+{
+    // blank out result
+    var ruleAttributeElement = document.getElementById("ruleAttribute");
+    ruleAttributeElement.innerText = "";
+
+    // get the rule value to search for
+    var ruleIdElement = document.getElementById("ruleId");
+    var ruleId = ruleIdElement.value;
+    
+    // get all the rules and then find the appropriate one
+    var rules = Array.from(document.getElementsByTagName("li"));
+    var filteredRules = rules.filter(r => r.innerText.startsWith(ruleId + ":"));
+    if (filteredRules.length == 0)
+    {
+        ruleAttributeElement.innerText = "Unable to locate rule " + ruleId;
+        return;
+    }
+    else if (filteredRules.length > 1)
+    {
+        ruleAttributeElement.innerText = "Multiple matches found for rule " + ruleId;
+    }
+    
+    // get the attribute text from the prior <p> tag
+    var elementLi = filteredRules[0];
+    var elementUl = elementLi.parentElement;
+    var elementP = elementUl.previousElementSibling;
+    var attributeText = elementP.innerText;
+
+    // assign the text to our tag
+    ruleAttributeElement.innerText = attributeText.substring(0, attributeText.indexOf(","))
+        + ", \"" + elementLi.innerText + "\""
+        + ", Justification = \"Reviewed\")]";
+}
+
+function handleRuleIdKeyUp(e)
+{
+    if (e.keyCode == 13)
+    {
+        searchForRule();
+        e.preventDefault();
+    }
+}
+
+window.onload = function()
+{
+    document.getElementById("ruleId").focus();
+}
