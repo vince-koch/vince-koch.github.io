@@ -2,38 +2,27 @@
 <head>
 <head>
 	<title>Tips & Snips</title>
-	<link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
-	<link rel="stylesheet" type="text/css" href="/css/reset.css">
-	<link rel="stylesheet" type="text/css" href="/css/milligram.1.3.0.min.css">
-    <link rel="stylesheet" type="text/css" href="/css/site.css">
+    <script type="text/javascript" src="/stylesheets.js"></script>
 </head>
 <body>
-	<div class="container">
-		<div class="row title">
-			<div class="column column-90">
-				<a href="/index.html"><img src="/favicon.ico" width="48" height="48"></a>
-				<span>Cookie's Crumbs: Enable Tracing for an Asp.NET Application</span>
-			</div>
-			<div class="column column-10" style="text-align:right;">
-				<a style="vertical-align: middle;" href="https://github.com/vince-koch/vince-koch.github.io">source</a>
-			</div>
-		</div>
+<div class="container">
+    <script type="text/javascript" src="/title-row.js"></script>
 
-		<div class="row">
-            <div class="column">
-                <p>Add the following configuration to your <strong>Web.config</strong> file.</p>
-                <code><pre>
-                    &lt;configuration&gt;
-                      &lt;system.web&gt;
-                        &lt;trace enabled="true" pageOutput="false" requestLimit="40" localOnly="false"/&gt;
-                      &lt;/system.web&gt;
-                    &lt;/configuration&gt;
-                </pre></code>
+    <div class="row">
+        <div class="column">
+            <p>Add the following configuration to your <strong>Web.config</strong> file.</p>
+            <code><pre>
+                &lt;configuration&gt;
+                  &lt;system.web&gt;
+                    &lt;trace enabled="true" pageOutput="false" requestLimit="40" localOnly="false"/&gt;
+                  &lt;/system.web&gt;
+                &lt;/configuration&gt;
+            </pre></code>
 
-                <p>You can then navigate to <strong>Trace.axd</strong> in the root of your application.
-                <p>For example, if the URL for your application is http://localhost/SampleApplication, navigate to http://localhost/SampleApplication/trace.axd to view the trace information for that application.</p>
-            </div>
+            <p>You can then navigate to <strong>Trace.axd</strong> in the root of your application.
+            <p>For example, if the URL for your application is http://localhost/SampleApplication, navigate to http://localhost/SampleApplication/trace.axd to view the trace information for that application.</p>
         </div>
     </div>
+</div>
 </body>
 <html>

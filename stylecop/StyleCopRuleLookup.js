@@ -44,6 +44,7 @@ function searchForRule()
     else if (filteredRules.length > 1)
     {
         ruleAttributeElement.innerText = "Multiple matches found for rule " + ruleId;
+        return;
     }
     
     // get the attribute text from the prior <p> tag
@@ -56,6 +57,8 @@ function searchForRule()
     ruleAttributeElement.innerText = attributeText.substring(0, attributeText.indexOf(","))
         + ", \"" + elementLi.innerText + "\""
         + ", Justification = \"Reviewed\")]";
+        
+    copyTextToClipboard(ruleAttributeElement.innerText);
 }
 
 function handleRuleIdKeyUp(e)
