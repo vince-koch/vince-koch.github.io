@@ -27,9 +27,15 @@ function getCleanRuleId()
 
 function searchForRule()
 {
-    // blank out result
-    var ruleAttributeElement = document.getElementById("ruleAttribute");
-    ruleAttributeElement.innerText = "";
+    // get our elements
+	var ruleAttributeDiv = document.getElementById("ruleAttributeDiv");
+    var ruleAttributeTextBox = document.getElementById("ruleAttributeTextBox");
+	var ruleAttributeCopyButton = document.getElementById("ruleAttributeCopyButton");
+	
+	// blank out result
+    ruleAttributeTextBox.innerText = "";
+	addClass(ruleAttributeDiv, "hidden");
+	addClass(ruleAttributeCopyButton, "hidden");
 
     var ruleId = getCleanRuleId();
     
@@ -38,12 +44,14 @@ function searchForRule()
     var filteredRules = rules.filter(r => r.innerText.startsWith(ruleId + ":"));
     if (filteredRules.length == 0)
     {
-        ruleAttributeElement.innerText = "Unable to locate rule " + ruleId;
+        ruleAttributeTextBox.value = "Unable to locate rule " + ruleId;
+		removeClass(ruleAttributeDiv, "hidden");
         return;
     }
     else if (filteredRules.length > 1)
     {
-        ruleAttributeElement.innerText = "Multiple matches found for rule " + ruleId;
+        ruleAttributeTextBox.value = "Multiple matches found for rule " + ruleId;
+		removeClass(ruleAttributeDiv, "hidden");
         return;
     }
     
@@ -54,11 +62,38 @@ function searchForRule()
     var attributeText = elementP.innerText;
 
     // assign the text to our tag
-    ruleAttributeElement.innerText = attributeText.substring(0, attributeText.indexOf(","))
+    ruleAttributeTextBox.value = attributeText.substring(0, attributeText.indexOf(","))
         + ", \"" + elementLi.innerText + "\""
         + ", Justification = \"Reviewed\")]";
-        
-    copyTextToClipboard(ruleAttributeElement.innerText);
+
+	// make it visible
+    removeClass(ruleAttributeDiv, "hidden");
+	removeClass(ruleAttributeCopyButton, "hidden");
+	
+	// copy the text
+    copyTextToClipboard(ruleAttributeTextBox.value);
+}
+
+function copyRuleText()
+{
+	var ruleAttributeTextBox = document.getElementById("ruleAttributeTextBox");
+	copyTextToClipboard(ruleAttributeTextBox.value);
+}
+
+function addClass(element, className)
+{
+	if (!element.classList.contains(className))
+	{
+		element.classList.add(className);
+	}
+}
+
+function removeClass(element, className)
+{
+	if (element.classList.contains(className))
+	{
+		element.classList.remove(className);
+	}
 }
 
 function handleRuleIdKeyUp(e)
