@@ -7,7 +7,7 @@ import React from "../../web_modules/react.js";
 import {ToastContainer} from "../../web_modules/react-toastify.js";
 import {Router, Route, Switch} from "../../web_modules/react-router-dom.js";
 import {Nav, Navbar} from "../../web_modules/react-bootstrap.js";
-import {FaBars, FaHome, FaCode} from "../../web_modules/react-icons/fa.js";
+import {FaBars, FaHome, FaCode, FaStickyNote} from "../../web_modules/react-icons/fa.js";
 import {LightSwitch as LightSwitch2} from "./LightSwitch.js";
 import {ShellPage, ShellBody, ShellHeader, ShellSidebar, ShellContent} from "./Shell.js";
 import {SidebarLink as SidebarLink2} from "./SidebarLink.js";
@@ -32,6 +32,8 @@ export class App extends React.Component {
     }, /* @__PURE__ */ React.createElement(ShellPage, null, /* @__PURE__ */ React.createElement(ShellHeader, null, /* @__PURE__ */ React.createElement(Navbar, {
       expand: "lg"
     }, /* @__PURE__ */ React.createElement(FaBars, {
+      title: "Toggle Sidebar",
+      style: {cursor: "pointer"},
       onClick: () => this.setState({isSidebarCollapsed: !this.state.isSidebarCollapsed})
     }), /* @__PURE__ */ React.createElement(Navbar.Brand, {
       style: {marginLeft: "20px"},
@@ -54,6 +56,11 @@ export class App extends React.Component {
       label: "Stylecop Lookup",
       isCollapsed: this.state.isSidebarCollapsed,
       onClick: () => this.navigationService.goToStyleCopLookup()
+    }), /* @__PURE__ */ React.createElement(SidebarLink2, {
+      icon: FaStickyNote,
+      label: "Notes",
+      isCollapsed: this.state.isSidebarCollapsed,
+      onClick: () => this.navigationService.goToNotes()
     })), /* @__PURE__ */ React.createElement(ShellContent, null, /* @__PURE__ */ React.createElement(ToastContainer, null), /* @__PURE__ */ React.createElement(Switch, null, routes)))));
   }
 }

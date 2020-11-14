@@ -1,6 +1,7 @@
 import { _ as _extends } from './common/extends-7477639a.js';
 import { a as createMemoryHistory, i as invariant, b as createLocation, d as createPath } from './common/history-9d3f52b3.js';
 import './common/_commonjsHelpers-eb5a497e.js';
+import { g as global } from './common/global-5c50bad9.js';
 import { r as react } from './common/index-d0e3fe20.js';
 import { p as propTypes, a as _inheritsLoose, _ as _objectWithoutPropertiesLoose } from './common/index-c7adfd31.js';
 import './common/hoist-non-react-statics.cjs-223b93d1.js';

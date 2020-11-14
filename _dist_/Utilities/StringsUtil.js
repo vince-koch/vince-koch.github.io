@@ -28,6 +28,10 @@ export class StringsUtil {
   static sanitize(value) {
     return value.replace(StringsUtil._encodedLeftSingleQuote, "'").replace(StringsUtil._encodedRightSingleQuote, "'").replace(StringsUtil._encodedLeftDoubleQuote, '"').replace(StringsUtil._encodedRightDoubleQuote, '"');
   }
+  static splitIntoLines(value) {
+    const result = value.split(/\r?\n/);
+    return result;
+  }
 }
 StringsUtil._invisibleWhiteSpace = String.fromCharCode(8203);
 StringsUtil._encodedLeftSingleQuote = "\u2018";

@@ -456,6 +456,15 @@ function useEventCallback(fn) {
   }, [ref]);
 }
 
+var divWithClassName = (function (className) {
+  return react.forwardRef(function (p, ref) {
+    return /*#__PURE__*/react.createElement("div", _extends({}, p, {
+      ref: ref,
+      className: classnames(p.className, className)
+    }));
+  });
+});
+
 var rHyphen = /-(.)/g;
 function camelize(string) {
   return string.replace(rHyphen, function (_, chr) {
@@ -605,6 +614,89 @@ Button.defaultProps = defaultProps$1;
 
 var context = react.createContext(null);
 context.displayName = 'CardContext';
+
+var defaultProps$2 = {
+  variant: null
+};
+var CardImg = react.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
+function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      className = _ref.className,
+      variant = _ref.variant,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'img' : _ref$as,
+      props = _objectWithoutPropertiesLoose(_ref, ["bsPrefix", "className", "variant", "as"]);
+
+  var prefix = useBootstrapPrefix(bsPrefix, 'card-img');
+  return /*#__PURE__*/react.createElement(Component, _extends({
+    ref: ref,
+    className: classnames(variant ? prefix + "-" + variant : prefix, className)
+  }, props));
+});
+CardImg.displayName = 'CardImg';
+CardImg.defaultProps = defaultProps$2;
+
+var DivStyledAsH5 = divWithClassName('h5');
+var DivStyledAsH6 = divWithClassName('h6');
+var CardBody = createWithBsPrefix('card-body');
+var CardTitle = createWithBsPrefix('card-title', {
+  Component: DivStyledAsH5
+});
+var CardSubtitle = createWithBsPrefix('card-subtitle', {
+  Component: DivStyledAsH6
+});
+var CardLink = createWithBsPrefix('card-link', {
+  Component: 'a'
+});
+var CardText = createWithBsPrefix('card-text', {
+  Component: 'p'
+});
+var CardHeader = createWithBsPrefix('card-header');
+var CardFooter = createWithBsPrefix('card-footer');
+var CardImgOverlay = createWithBsPrefix('card-img-overlay');
+var defaultProps$3 = {
+  body: false
+};
+var Card = react.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      className = _ref.className,
+      bg = _ref.bg,
+      text = _ref.text,
+      border = _ref.border,
+      body = _ref.body,
+      children = _ref.children,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'div' : _ref$as,
+      props = _objectWithoutPropertiesLoose(_ref, ["bsPrefix", "className", "bg", "text", "border", "body", "children", "as"]);
+
+  var prefix = useBootstrapPrefix(bsPrefix, 'card');
+  var cardContext = react.useMemo(function () {
+    return {
+      cardHeaderBsPrefix: prefix + "-header"
+    };
+  }, [prefix]);
+  return /*#__PURE__*/react.createElement(context.Provider, {
+    value: cardContext
+  }, /*#__PURE__*/react.createElement(Component, _extends({
+    ref: ref
+  }, props, {
+    className: classnames(className, prefix, bg && "bg-" + bg, text && "text-" + text, border && "border-" + border)
+  }), body ?
+  /*#__PURE__*/
+  // @ts-ignore
+  react.createElement(CardBody, null, children) : children));
+});
+Card.displayName = 'Card';
+Card.defaultProps = defaultProps$3;
+Card.Img = CardImg;
+Card.Title = CardTitle;
+Card.Subtitle = CardSubtitle;
+Card.Body = CardBody;
+Card.Link = CardLink;
+Card.Text = CardText;
+Card.Header = CardHeader;
+Card.Footer = CardFooter;
+Card.ImgOverlay = CardImgOverlay;
 
 var DEVICE_SIZES = ['xl', 'lg', 'md', 'sm', 'xs'];
 var Col = react.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
@@ -1193,7 +1285,7 @@ var FormGroup = react.forwardRef(function (_ref, ref) {
 });
 FormGroup.displayName = 'FormGroup';
 
-var defaultProps$2 = {
+var defaultProps$4 = {
   column: false,
   srOnly: false
 };
@@ -1231,7 +1323,7 @@ var FormLabel = react.forwardRef(function (_ref, ref) {
   );
 });
 FormLabel.displayName = 'FormLabel';
-FormLabel.defaultProps = defaultProps$2;
+FormLabel.defaultProps = defaultProps$4;
 
 var FormText = react.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 function (_ref, ref) {
@@ -1261,7 +1353,7 @@ Switch.Input = FormCheck.Input;
 Switch.Label = FormCheck.Label;
 
 var FormRow = createWithBsPrefix('form-row');
-var defaultProps$3 = {
+var defaultProps$5 = {
   inline: false
 };
 var FormImpl = react.forwardRef(function (_ref, ref) {
@@ -1280,7 +1372,7 @@ var FormImpl = react.forwardRef(function (_ref, ref) {
   }));
 });
 FormImpl.displayName = 'Form';
-FormImpl.defaultProps = defaultProps$3;
+FormImpl.defaultProps = defaultProps$5;
 FormImpl.Row = FormRow;
 FormImpl.Group = FormGroup;
 FormImpl.Control = FormControl$1;
@@ -1393,7 +1485,7 @@ var AbstractNav = react.forwardRef(function (_ref, ref) {
   }))));
 });
 
-var defaultProps$4 = {
+var defaultProps$6 = {
   disabled: false
 };
 var AbstractNavItem = react.forwardRef(function (_ref, ref) {
@@ -1437,7 +1529,7 @@ var AbstractNavItem = react.forwardRef(function (_ref, ref) {
     className: classnames(className, isActive && 'active')
   }));
 });
-AbstractNavItem.defaultProps = defaultProps$4;
+AbstractNavItem.defaultProps = defaultProps$6;
 
 var NavItem = react.forwardRef( // Need to define the default "as" during prop destructuring to be compatible with styled-components github.com/react-bootstrap/react-bootstrap/issues/3595
 function (_ref, ref) {
@@ -1456,7 +1548,7 @@ function (_ref, ref) {
 });
 NavItem.displayName = 'NavItem';
 
-var defaultProps$5 = {
+var defaultProps$7 = {
   disabled: false,
   as: SafeAnchor
 };
@@ -1482,9 +1574,9 @@ var NavLink = react.forwardRef(function (_ref, ref) {
   }));
 });
 NavLink.displayName = 'NavLink';
-NavLink.defaultProps = defaultProps$5;
+NavLink.defaultProps = defaultProps$7;
 
-var defaultProps$6 = {
+var defaultProps$8 = {
   justify: false,
   fill: false
 };
@@ -1528,7 +1620,7 @@ var Nav = react.forwardRef(function (uncontrolledProps, ref) {
   }, props), children);
 });
 Nav.displayName = 'Nav';
-Nav.defaultProps = defaultProps$6;
+Nav.defaultProps = defaultProps$8;
 Nav.Item = NavItem;
 Nav.Link = NavLink;
 
@@ -1564,7 +1656,7 @@ var NavbarCollapse = react.forwardRef(function (_ref, ref) {
 });
 NavbarCollapse.displayName = 'NavbarCollapse';
 
-var defaultProps$7 = {
+var defaultProps$9 = {
   label: 'Toggle navigation'
 };
 var NavbarToggle = react.forwardRef(function (_ref, ref) {
@@ -1602,12 +1694,12 @@ var NavbarToggle = react.forwardRef(function (_ref, ref) {
   }));
 });
 NavbarToggle.displayName = 'NavbarToggle';
-NavbarToggle.defaultProps = defaultProps$7;
+NavbarToggle.defaultProps = defaultProps$9;
 
 var NavbarText = createWithBsPrefix('navbar-text', {
   Component: 'span'
 });
-var defaultProps$8 = {
+var defaultProps$a = {
   expand: true,
   variant: 'light',
   collapseOnSelect: false
@@ -1670,7 +1762,7 @@ var Navbar = react.forwardRef(function (props, ref) {
     className: classnames(className, bsPrefix, expand && expandClass, variant && bsPrefix + "-" + variant, bg && "bg-" + bg, sticky && "sticky-" + sticky, fixed && "fixed-" + fixed)
   }), children)));
 });
-Navbar.defaultProps = defaultProps$8;
+Navbar.defaultProps = defaultProps$a;
 Navbar.displayName = 'Navbar';
 Navbar.Brand = NavbarBrand;
 Navbar.Toggle = NavbarToggle;
@@ -1678,7 +1770,7 @@ Navbar.Collapse = NavbarCollapse;
 Navbar.Text = NavbarText;
 
 var DEVICE_SIZES$1 = ['xl', 'lg', 'md', 'sm', 'xs'];
-var defaultProps$9 = {
+var defaultProps$b = {
   noGutters: false
 };
 var Row = react.forwardRef(function (_ref, ref) {
@@ -1713,6 +1805,6 @@ var Row = react.forwardRef(function (_ref, ref) {
   }));
 });
 Row.displayName = 'Row';
-Row.defaultProps = defaultProps$9;
+Row.defaultProps = defaultProps$b;
 
-export { Button, Col, FormImpl as Form, Nav, Navbar, Row };
+export { Button, Card, Col, FormImpl as Form, Nav, Navbar, Row };

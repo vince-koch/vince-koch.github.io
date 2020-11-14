@@ -4,6 +4,7 @@
     "history": "./history.js",
     "lodash": "./lodash.js",
     "lodash-es": "./lodash-es.js",
+    "markdown-it": "./markdown-it.js",
     "react": "./react.js",
     "react-bootstrap": "./react-bootstrap.js",
     "react-dom": "./react-dom.js",

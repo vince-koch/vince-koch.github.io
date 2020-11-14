@@ -1,3 +1,5 @@
+import { g as global } from './common/global-5c50bad9.js';
+
 /** Detect free variable `global` from Node.js. */
 var freeGlobal = typeof global == 'object' && global && global.Object === Object && global;
 
