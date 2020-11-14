@@ -1,11 +1,14 @@
+# Cookie Crumbs
+
+> ✨ Bootstrapped with Create Snowpack App (CSA).
+
+
 ## Links
-* [Index](build/index.html)
+
+* [Index](https://vince-koch.github.io/dist/index.html)
 * [StyleCop Rule Lookup](https://vince-koch.github.io/stylecop/StylecopRuleLookup.html)
 
 
-# New Project
-
-> ✨ Bootstrapped with Create Snowpack App (CSA).
 
 ## Available Scripts
 
