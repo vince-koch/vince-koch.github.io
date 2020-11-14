@@ -6,7 +6,10 @@
 
 
 ## Links
-* [Index](https://vince-koch.github.io/index.html)
+* [View](https://vince-koch.github.io/index.html)
+* [Source Code](https://github.com/vince-koch/vince-koch.github.io)
+* [Published Source](https://github.com/vince-koch/vince-koch.github.io/tree/gh-pages)
+* [Old Site Source Code](https://github.com/vince-koch/vince-koch.github.io/tree/old)
 
 
 ## Scripts
