@@ -60,4 +60,10 @@ export class StringsUtil
             .replace(StringsUtil._encodedLeftDoubleQuote, "\"")
             .replace(StringsUtil._encodedRightDoubleQuote, "\"");
     }
+
+    public static splitIntoLines(value: string): string[]
+    {
+        const result = value.split(/\r?\n/);
+        return result;
+    }
 }

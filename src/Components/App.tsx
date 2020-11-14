@@ -8,7 +8,7 @@ import React from "react";
 import { ToastContainer } from "react-toastify";
 import { Router, Route, Switch } from "react-router-dom";
 import { Nav, Navbar } from "react-bootstrap";
-import { FaCookieBite, FaBars, FaHome, FaCode } from "react-icons/fa";
+import { FaBars, FaHome, FaCode, FaStickyNote } from "react-icons/fa";
 import { LightSwitch } from "./LightSwitch";
 import { ShellPage, ShellBody, ShellHeader, ShellSidebar, ShellContent } from "./Shell";
 import { SidebarLink } from "./SidebarLink";
@@ -44,7 +44,9 @@ export class App extends React.Component<any, IAppState>
                     <ShellPage>
                         <ShellHeader>
                             <Navbar expand="lg">
-                                <FaBars onClick={() => this.setState({ isSidebarCollapsed: !this.state.isSidebarCollapsed })} />
+                                <FaBars title="Toggle Sidebar"
+                                    style={{ cursor: "pointer" }} 
+                                    onClick={() => this.setState({ isSidebarCollapsed: !this.state.isSidebarCollapsed })} />
 
                                 <Navbar.Brand style={{ marginLeft: "20px" }} href="#">
                                     <img src="/favicon.ico" width="32" height="32" />&nbsp;
@@ -64,6 +66,9 @@ export class App extends React.Component<any, IAppState>
                                 <SidebarLink icon={FaCode} label="Stylecop Lookup"
                                     isCollapsed={this.state.isSidebarCollapsed}
                                     onClick={() => this.navigationService.goToStyleCopLookup()} />
+                                <SidebarLink icon={FaStickyNote} label="Notes"
+                                    isCollapsed={this.state.isSidebarCollapsed}
+                                    onClick={() => this.navigationService.goToNotes()} />
                             </ShellSidebar>
 
                             <ShellContent>
