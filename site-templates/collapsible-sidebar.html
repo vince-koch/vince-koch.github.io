@@ -1,0 +1,146 @@
+<html>
+<head>
+
+<meta http-equiv="refresh" content="60">
+
+<!-- jquery, popper, bootstrap, and font awesome -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" crossorigin="anonymous" />
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    
+<style>
+body {
+    margin: 0;
+}
+
+#page {
+    background-color: yellow;
+    width: 100%;
+    height: 100%;
+}
+
+#header {
+    background-color: 333333;
+    color: gainsboro;
+    position: fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 56px;
+}
+
+#body {
+    background-color: green;
+    position: fixed;
+    top: 56px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+#sidebar {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+#sidebar-nav {
+    background-color: black;
+    color: ghostwhite;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 40px;           
+}
+
+#sidebar-nav li {
+    line-height: 40px;
+    text-align: center;
+}
+
+#sidebar-nav li a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+#sidebar-nav li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+#sidebar-content {
+    background-color: gainsboro;
+    border-right: 1px solid black;
+    padding: 5px;
+    width: 200px;
+}
+
+#body-content {
+    background-color: white;
+    flex-grow: 1;
+    padding: 15px;
+}
+
+.transition {
+    transition: all 0.5s ease;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;    
+}
+
+#sidebar-content.toggled {
+    padding: 0px;
+    width: 0px;
+}
+</style>
+
+</head>
+<body>
+    <div id="page">
+        <div id="header">
+            <h3>header</h3>
+        </div>
+    
+        <div id="body">
+            <div id="sidebar">
+                <ul id="sidebar-nav">
+                    <li><a class="navbar-btn" title="Collapse Sidebar" click.delegate="toggleSidebar()"><i class="fa fa-arrow-circle-left"></i></a></li>
+                    <li><a class="navbar-btn" title="View Database Tree"><i class="fa fa-tree"></i></a></li>
+                    <li><a class="navbar-btn" title="View Query Code"><i class="fa fa-code"></i></a></li>
+                    <li><a class="navbar-btn" title="Settings"><i class="fa fa-cog"></i></a></li>
+                </ul>
+                <div id="sidebar-content" class="transition">
+                    sidebar content
+                </div>
+            </div>
+    
+            <div id="body-content">
+                content
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById("body-content").innerHTML = new Date().toString();
+        
+        document.getElementById("sidebar-nav")
+            .getElementsByTagName("a")[0]
+            .addEventListener("click", toggleSidebar);
+        
+        function toggleSidebar(event)
+        {
+            document.getElementById("sidebar-content")
+                .classList.toggle("toggled");
+        }
+    </script>
+</body>
+</html>

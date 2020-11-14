@@ -1,53 +1,95 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content="Web site created using create-snowpack-app" />
-    <title>Cookie's Crumbs</title>
+<html>
+<head>
+	<title>Index</title>
+    <script type="text/javascript" src="/stylesheets.js"></script>
+</head>
+<body>
+	<div class="container">
+        <script type="text/javascript" src="/title-row.js"></script>
 
-    <!-- Start Single Page Apps for GitHub Pages -->
-    <script type="text/javascript">
-      // Single Page Apps for GitHub Pages
-      // MIT License
-      // https://github.com/rafgraph/spa-github-pages
-      // This script checks to see if a redirect is present in the query string,
-      // converts it back into the correct url and adds it to the
-      // browser's history using window.history.replaceState(...),
-      // which won't cause the browser to attempt to load the new url.
-      // When the single page app is loaded further down in this file,
-      // the correct url will be waiting in the browser's history for
-      // the single page app to route accordingly.
-      /*
-      (function(l) {
-        if (l.search[1] === '/' ) {
-          var decoded = l.search.slice(1).split('&').map(function(s) { 
-            return s.replace(/~and~/g, '&')
-          }).join('?');
-          window.history.replaceState(null, null,
-              l.pathname.slice(0, -1) + decoded + l.hash
-          );
-        }
-      }(window.location))
-      */
-    </script>
-    <!-- End Single Page Apps for GitHub Pages -->
+		<div class="row">
+			<div class="column">
+				<figure>
+					<figcaption>NuGet</figcaption>
+					<ul>
+						<li><a href="nuget/rename-to-match-project-name.nuspec">Minimal *.nuspec file</a></li>
+					</ul>
+				</figure>
+			</div>
+		
+			<div class="column">		
+				<figure>
+					<figcaption>StyleCop</figcaption>
+					<ul>
+						<li><a href="stylecop/StyleCopRuleLookup.html">StyleCop ignore lookup</a></li>
+						<li><a href="stylecop/Settings.StyleCop">StyleCop settings file</a> - Put this next to your *.sln file</li>
+					</ul>
+				</figure>
+			</div>
+		</div>
+		
+		<div class="row">
+			<div class="column">
+				<figure>
+					<figcaption>WCF</figcaption>
+					<ul>
+						<li>http://localhost/Temporary_Listen_Addresses</li>
+					</ul>
+				</figure>
+			</div>
+            
+            <div class="column">
+                <figure>
+                    <figcaption>Tips & Snips</figcaption>
+                    <ul>
+                        <li><a href="snippets/OwinAssemblies.html">Owin Assemblies</a></li>
+                        <li><a href="snippets/Tracing-For-An-ASP.NET-Application.html">Enable tracing in an Asp.NET application</a></li>
+                        <li><a href="snippets/Capture-IIS-In-Fiddler.html">Capture IIS in Fiddler</a></li>
+                    </ul>
+                </figure>
+            </div>
+        </div>
         
-  </head>
-  <body>
-    <div id="root"></div>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <script type="module" src="/_dist_/index.js"></script>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
+        <div class="row">
+            <div class="column">
+                <figure>
+                    <figcaption>Site Resources</figcaption>
+                    <ul>
+                        <li><a href="site-templates/layout.html">site layout</a></li>
+                        <li><a href="site-templates/collapsible-sidebar.html">collapsible sidebar</a></li>
+                        <li>Icons: 
+                            <img src="/icons/cookie-1.ico" width="16" title="cookie-1.ico 16x16" />
+                            <img src="/icons/cookie-2.ico" width="16" title="cookie-2.ico 128x128" />
+                            <img src="/icons/cookie-3.ico" width="16" title="cookie-3.ico 256x256" />
+                            <img src="/icons/cookie-4.ico" width="16" title="cookie-4.ico 32x32" />
+                            <img src="/icons/cookie-5.ico" width="16" title="cookie-5.ico 128x128" />
+                            <img src="/icons/k.ico" width="16" title="k.ico 128x128" />
+                        </li>
+                    </ul>
+                </figure>
+            </div>
 
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
-  </body>
+            <div class="column">
+                <figure>
+                    <figcaption>Fix Visual Studio 2019</figcaption>
+                    <ul>
+                        <li>
+                            <a href="https://stackoverflow.com/questions/56241077/visual-studio-2019-start-page-instead-of-start-window">Start Window</a>
+                            <p>Tools &gt; Options &gt; Environment &gt; Startup &gt; On startup, open: &gt; select "Empty environment"</p>
+                        </li>
+                        <li>
+                            <a href="https://stackoverflow.com/questions/56262172/how-to-restore-normal-new-project-windows-on-visual-studio-2019">New Project Dialog</a>
+                            <ul>
+                                <li>Install an extension called Classic 'New Project' Dialog</li>
+                                <li>After installing it is necessary to enable it in Options</li>
+                                <li>Tools &gt; Options &gt; Classic Project Dialog &gt; General &gt; tick "Use Classic New Project Dialog"</li>
+                            </ul>
+                        </li>
+                        <li>Install an extension called "VSColorOutput"</li>
+                    </ul>
+                </figure>
+            </div>
+		</div>
+	</div>
+</body>
 </html>
