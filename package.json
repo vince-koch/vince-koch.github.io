@@ -3,8 +3,9 @@
   "scripts": {
     "start": "snowpack dev",
     "build": "snowpack build",
-    "predeploy": "npm run build --clean",
-    "deploy": "gh-pages --git \"c:/sync/apps/Git/bin/git.exe\" --dist build --user \"vince <vince.koch@gmail.com>\"",
+    "predeploy": "npm run build --clean && npm run nojekyll",
+    "nojekyll": "copy /y NUL \"build/.nojekyll\" >NUL",
+    "deploy": "gh-pages --git \"c:/sync/apps/Git/bin/git.exe\" --dist build --user \"vince <vince.koch@gmail.com>\" --dotfiles",
     "test": "web-test-runner \"src/**/*.test.tsx\"",
     "format": "prettier --write \"src/**/*.{js,jsx,ts,tsx}\"",
     "lint": "prettier --check \"src/**/*.{js,jsx,ts,tsx}\""

@@ -41,3 +41,12 @@
 * > npm run deploy
 
     Rebuilds the app (`npm run build`) and then publishes to the _gh-pages_ branch.  See [gh-pages](https://www.npmjs.com/package/gh-pages) for more information)
+
+## Other notes
+ 
+ * By default, github pages will disregard directories that begin with an underscore ( _ ) as part of its jekyll processing. You can bypass that by putting an empty
+   `.nojekyll` file in the top level of your repository.  [This](https://github.blog/2009-12-29-bypassing-jekyll-on-github-pages/) blog entry was the one that help me understand.
+   
+        It is now possible to completely bypass Jekyll processing on GitHub Pages by creating a file named .nojekyll in the root of your pages repo and pushing it to GitHub. 
+        This should only be necessary if your site uses files or directories that start with underscores since Jekyll considers these to be special resources and does not
+        copy them to the final site.  
