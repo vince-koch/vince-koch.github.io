@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
 export const ShellPage = styled.div`
-    background-color: var(--default-background-color);
-    color: var(--default-text-color);
     display: flex;
     flex-direction: column;
     height: 100vh;
@@ -28,7 +26,8 @@ export const ShellSidebar = styled.aside`
 `;
 
 export const ShellContent = styled.article`
-    background-color: var(--background);
+    background-color: var(--default-background-color);
+    color: var(--default-text-color);
     flex: 1;
     padding: 20px 40px 0 40px;   
 `;
