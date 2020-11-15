@@ -41,7 +41,7 @@ export class Notes extends React.Component
 
                 <Row>
                     <Col md="4">
-                        <ul>
+                        <ul style={{ fontSize: "smaller" }}>
                             {this.state.indexLines.map(item =>
                                 <li key={item}>
                                     <a href="#" onClick={() => this.handleFileClick(item)}>
@@ -64,7 +64,7 @@ export class Notes extends React.Component
             && Utilities.types.isText(this.state.selectedContents))
         {
             return (
-                <Card>
+                <Card bg="primary">
                     <Card.Header>{this.state.selectedFilename}</Card.Header>  
                     <Card.Body>
                         <div dangerouslySetInnerHTML={{ __html: this.state.selectedContents! }}></div>

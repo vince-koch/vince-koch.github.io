@@ -8,7 +8,8 @@ import React from "react";
 import { ToastContainer } from "react-toastify";
 import { Router, Route, Switch } from "react-router-dom";
 import { Nav, Navbar } from "react-bootstrap";
-import { FaBars, FaHome, FaCode, FaStickyNote } from "react-icons/fa";
+import { FaBars, FaBootstrap, FaFontAwesome, FaSnowflake, FaGithub } from "react-icons/fa";
+import { FaHome, FaCode, FaStickyNote } from "react-icons/fa";
 import { LightSwitch } from "./LightSwitch";
 import { ShellPage, ShellBody, ShellHeader, ShellSidebar, ShellContent } from "./Shell";
 import { SidebarLink } from "./SidebarLink";
@@ -54,6 +55,10 @@ export class App extends React.Component<any, IAppState>
                                 </Navbar.Brand>
                                 <Nav className="mr-auto">                        
                                 </Nav>
+                                <Nav.Link href="https://react-bootstrap.github.io/" title="Bootstrap"><FaBootstrap /></Nav.Link>
+                                <Nav.Link href="https://fontawesome.com/icons?d=gallery" title="FontAwesome"><FaFontAwesome /></Nav.Link>
+                                <Nav.Link href="https://www.snowpack.dev/" title="SnowPack"><FaSnowflake /></Nav.Link>
+                                <Nav.Link href="https://github.com/vince-koch/vince-koch.github.io" title="Github"><FaGithub /></Nav.Link>
                                 <LightSwitch />
                             </Navbar>
                         </ShellHeader>
