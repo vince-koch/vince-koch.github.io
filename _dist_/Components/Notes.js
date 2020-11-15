@@ -23,7 +23,9 @@ export class Notes extends React.Component {
   render() {
     return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(ShellTitle, null, /* @__PURE__ */ React.createElement(FaStickyNote, null), " Notes"), /* @__PURE__ */ React.createElement(Row, null, /* @__PURE__ */ React.createElement(Col, {
       md: "4"
-    }, /* @__PURE__ */ React.createElement("ul", null, this.state.indexLines.map((item) => /* @__PURE__ */ React.createElement("li", {
+    }, /* @__PURE__ */ React.createElement("ul", {
+      style: {fontSize: "smaller"}
+    }, this.state.indexLines.map((item) => /* @__PURE__ */ React.createElement("li", {
       key: item
     }, /* @__PURE__ */ React.createElement("a", {
       href: "#",
@@ -34,7 +36,9 @@ export class Notes extends React.Component {
   }
   renderViewer() {
     if (Utilities2.types.isText(this.state.selectedFilename) && Utilities2.types.isText(this.state.selectedExtension) && Utilities2.types.isText(this.state.selectedContents)) {
-      return /* @__PURE__ */ React.createElement(Card, null, /* @__PURE__ */ React.createElement(Card.Header, null, this.state.selectedFilename), /* @__PURE__ */ React.createElement(Card.Body, null, /* @__PURE__ */ React.createElement("div", {
+      return /* @__PURE__ */ React.createElement(Card, {
+        bg: "primary"
+      }, /* @__PURE__ */ React.createElement(Card.Header, null, this.state.selectedFilename), /* @__PURE__ */ React.createElement(Card.Body, null, /* @__PURE__ */ React.createElement("div", {
         dangerouslySetInnerHTML: {__html: this.state.selectedContents}
       })));
     }
