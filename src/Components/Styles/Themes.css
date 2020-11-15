@@ -1,17 +1,19 @@
 /* Light theme */
 :root {
-    --default-background-color: : var(--white);
+    --brand-color: var(--sepia-3);
+    --default-background-color: var(--white);
+    --shadow-color: var(--black);
     --default-text-color: var(--dark-gray-3);
-    --default-link-hover-color: var(--gold-4);
     --header-background-color: var(--light-gray-4);
     --sidebar-background-color: var(--light-gray-5);
 }
 
 /* Dark theme */
 html[data-theme="dark"] {
+    --brand-color: var(--sepia-1);
+    --shadow-color: var(--white);
     --default-background-color: var(--dark-gray-3);
     --default-text-color: var(--light-gray-5);
-    --default-link-hover-color: var(--gold-4);
     --header-background-color: var(--dark-gray-1);
     --sidebar-background-color: var(--dark-gray-2);
 }
