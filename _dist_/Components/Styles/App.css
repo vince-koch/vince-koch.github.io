@@ -16,7 +16,7 @@ a {
 }
 
 a:hover {
-  color: var(--default-link-hover-color);
+  color: var(--brand-color);
 }
 
 .spin {
