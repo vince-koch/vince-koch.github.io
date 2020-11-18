@@ -27,6 +27,23 @@ export class NavigationService
         return NavigationService.routes;
     }
 
+    public getCurrentLocation(): string
+    {
+        return window.location.pathname;
+    }
+
+    public getActiveRoute(): string | undefined
+    {
+        const location = this.getCurrentLocation();
+
+        const activeRoute = NavigationService.routes
+            .map(route => route.path?.toString()?.toLocaleLowerCase())
+            .filter(routePath => Utilities.types.isText(routePath))
+            .find(routePath => routePath!.toLowerCase() === location.toLowerCase())
+            
+        return activeRoute;
+    }
+
     public goToDashboard(): void
     {
         this.navigateTo("/");

@@ -1,8 +1,6 @@
-import "./Styles/Colors.css";
-import "./Styles/Themes.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import "./Styles/Bootstrap.scss";
 import "react-toastify/dist/ReactToastify.css";
-import "./Styles/App.css";
+import "./Styles/App.scss";
 
 import React from "react";
 import { ToastContainer } from "react-toastify";
@@ -30,6 +28,8 @@ export class App extends React.Component<any, IAppState>
         this.state = {
             isSidebarCollapsed: false
         } as IAppState;
+
+        console.warn("APPLICATION CONSTRUCTOR");
     }
 
     public render(): JSX.Element
@@ -39,8 +39,7 @@ export class App extends React.Component<any, IAppState>
                 exact={route.exact}
                 path={route.path} component={route.component} />);
 
-        return (
-            
+        return (      
                 <Router history={this.navigationService.getHistory()}>
                     <ShellPage>
                         <ShellHeader>
@@ -65,13 +64,13 @@ export class App extends React.Component<any, IAppState>
                         
                         <ShellBody>
                             <ShellSidebar>
-                                <SidebarLink icon={FaHome} label="Home"
+                                <SidebarLink icon={FaHome} label="Home" route="/"
                                     isCollapsed={this.state.isSidebarCollapsed}
                                     onClick={() => this.navigationService.goToDashboard()} />
-                                <SidebarLink icon={FaCode} label="Stylecop Lookup"
+                                <SidebarLink icon={FaCode} label="Stylecop Lookup" route="/stylecop"
                                     isCollapsed={this.state.isSidebarCollapsed}
                                     onClick={() => this.navigationService.goToStyleCopLookup()} />
-                                <SidebarLink icon={FaStickyNote} label="Notes"
+                                <SidebarLink icon={FaStickyNote} label="Notes" route="/notes"
                                     isCollapsed={this.state.isSidebarCollapsed}
                                     onClick={() => this.navigationService.goToNotes()} />
                             </ShellSidebar>

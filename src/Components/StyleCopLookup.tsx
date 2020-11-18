@@ -1,7 +1,7 @@
 import React from "react";
-import { Form } from "react-bootstrap";
+import { Form, InputGroup } from "react-bootstrap";
 import { toast } from "react-toastify";
-import { FaCode, FaCopy } from "react-icons/fa";
+import { FaCode, FaSearch, FaCopy } from "react-icons/fa";
 import { Utilities } from "./../Utilities/Utilities";
 import { StyleCopRules } from "./../Services/StyleCopRules";
 import { ShellTitle } from "./Shell";
@@ -33,22 +33,26 @@ export class StyleCopLookup extends React.Component<any, IStyleCopLookupState>
                 </a>
             </li>);
 
-        return (
-            <>
-                <ShellTitle><FaCode /> StyleCop Lookup</ShellTitle>
+        return (<>
+            <ShellTitle><FaCode /> StyleCop Lookup</ShellTitle>
 
-                <Form.Group controlId="ruleLookupTextBox">
-                    <Form.Label>Rule Lookup</Form.Label>
-                    <Form.Control type="text" placeholder="Rule ID or Description" 
-                        value={this.state.searchText}
-                        onChange={e => this.handleSearchTextChange(e.target.value)} />
-                    <Form.Text>{this.state.matchingRules.length} matching rules</Form.Text>
-                </Form.Group>
+            <Form.Group controlId="ruleLookupTextBox">
+                <Form.Label>Rule Lookup</Form.Label>
+                <InputGroup>
+                <Form.Control type="text" placeholder="Rule ID or Description" 
+                    value={this.state.searchText}
+                    onChange={e => this.handleSearchTextChange(e.target.value)} />
+                    <InputGroup.Append>
+                        <InputGroup.Text><FaSearch /></InputGroup.Text>
+                    </InputGroup.Append>
+                </InputGroup>
+                <Form.Text>{this.state.matchingRules.length} matching rules</Form.Text>
+            </Form.Group>
 
-                <ul>
-                    {matchingItems}
-                </ul>
-            </>);
+            <ul>
+                {matchingItems}
+            </ul>
+        </>);
     }
 
     private handleSearchTextChange(searchText: string): void
