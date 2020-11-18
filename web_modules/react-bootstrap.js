@@ -1382,6 +1382,57 @@ FormImpl.Switch = Switch;
 FormImpl.Label = FormLabel;
 FormImpl.Text = FormText;
 
+var InputGroupAppend = createWithBsPrefix('input-group-append');
+var InputGroupPrepend = createWithBsPrefix('input-group-prepend');
+var InputGroupText = createWithBsPrefix('input-group-text', {
+  Component: 'span'
+});
+
+var InputGroupCheckbox = function InputGroupCheckbox(props) {
+  return /*#__PURE__*/react.createElement(InputGroupText, null, /*#__PURE__*/react.createElement("input", _extends({
+    type: "checkbox"
+  }, props)));
+};
+
+var InputGroupRadio = function InputGroupRadio(props) {
+  return /*#__PURE__*/react.createElement(InputGroupText, null, /*#__PURE__*/react.createElement("input", _extends({
+    type: "radio"
+  }, props)));
+};
+
+/**
+ *
+ * @property {InputGroupAppend} Append
+ * @property {InputGroupPrepend} Prepend
+ * @property {InputGroupText} Text
+ * @property {InputGroupRadio} Radio
+ * @property {InputGroupCheckbox} Checkbox
+ */
+var InputGroup = react.forwardRef(function (_ref, ref) {
+  var bsPrefix = _ref.bsPrefix,
+      size = _ref.size,
+      className = _ref.className,
+      _ref$as = _ref.as,
+      Component = _ref$as === void 0 ? 'div' : _ref$as,
+      props = _objectWithoutPropertiesLoose(_ref, ["bsPrefix", "size", "className", "as"]);
+
+  bsPrefix = useBootstrapPrefix(bsPrefix, 'input-group');
+  return /*#__PURE__*/react.createElement(Component, _extends({
+    ref: ref
+  }, props, {
+    className: classnames(className, bsPrefix, size && bsPrefix + "-" + size)
+  }));
+});
+InputGroup.displayName = 'InputGroup';
+
+var InputGroupWithExtras = _extends({}, InputGroup, {
+  Text: InputGroupText,
+  Radio: InputGroupRadio,
+  Checkbox: InputGroupCheckbox,
+  Append: InputGroupAppend,
+  Prepend: InputGroupPrepend
+});
+
 var TabContext = react.createContext(null);
 
 // eslint-disable-next-line @typescript-eslint/no-empty-function
@@ -1807,4 +1858,4 @@ var Row = react.forwardRef(function (_ref, ref) {
 Row.displayName = 'Row';
 Row.defaultProps = defaultProps$b;
 
-export { Button, Card, Col, FormImpl as Form, Nav, Navbar, Row };
+export { Button, Card, Col, FormImpl as Form, InputGroupWithExtras as InputGroup, Nav, Navbar, Row };

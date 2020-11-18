@@ -1,6 +1,5 @@
 {
   "imports": {
-    "bootstrap/dist/css/bootstrap.min.css": "./bootstrap/dist/css/bootstrap.min.css",
     "history": "./history.js",
     "lodash": "./lodash.js",
     "lodash-es": "./lodash-es.js",

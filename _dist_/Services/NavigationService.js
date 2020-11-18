@@ -11,6 +11,14 @@ export class NavigationService {
   getRoutes() {
     return NavigationService.routes;
   }
+  getCurrentLocation() {
+    return window.location.pathname;
+  }
+  getActiveRoute() {
+    const location = this.getCurrentLocation();
+    const activeRoute = NavigationService.routes.map((route) => route.path?.toString()?.toLocaleLowerCase()).filter((routePath) => Utilities2.types.isText(routePath)).find((routePath) => routePath.toLowerCase() === location.toLowerCase());
+    return activeRoute;
+  }
   goToDashboard() {
     this.navigateTo("/");
   }

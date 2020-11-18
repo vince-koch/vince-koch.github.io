@@ -1,6 +1,4 @@
-import "./Styles/Colors.css.proxy.js";
-import "./Styles/Themes.css.proxy.js";
-import "../../web_modules/bootstrap/dist/css/bootstrap.min.css.proxy.js";
+import "./Styles/Bootstrap.css.proxy.js";
 import "../../web_modules/react-toastify/dist/ReactToastify.css.proxy.js";
 import "./Styles/App.css.proxy.js";
 import React from "../../web_modules/react.js";
@@ -20,6 +18,7 @@ export class App extends React.Component {
     this.state = {
       isSidebarCollapsed: false
     };
+    console.warn("APPLICATION CONSTRUCTOR");
   }
   render() {
     const routes = this.navigationService.getRoutes().map((route, index) => /* @__PURE__ */ React.createElement(Route, {
@@ -62,16 +61,19 @@ export class App extends React.Component {
     }, /* @__PURE__ */ React.createElement(FaGithub, null)), /* @__PURE__ */ React.createElement(LightSwitch2, null))), /* @__PURE__ */ React.createElement(ShellBody, null, /* @__PURE__ */ React.createElement(ShellSidebar, null, /* @__PURE__ */ React.createElement(SidebarLink2, {
       icon: FaHome,
       label: "Home",
+      route: "/",
       isCollapsed: this.state.isSidebarCollapsed,
       onClick: () => this.navigationService.goToDashboard()
     }), /* @__PURE__ */ React.createElement(SidebarLink2, {
       icon: FaCode,
       label: "Stylecop Lookup",
+      route: "/stylecop",
       isCollapsed: this.state.isSidebarCollapsed,
       onClick: () => this.navigationService.goToStyleCopLookup()
     }), /* @__PURE__ */ React.createElement(SidebarLink2, {
       icon: FaStickyNote,
       label: "Notes",
+      route: "/notes",
       isCollapsed: this.state.isSidebarCollapsed,
       onClick: () => this.navigationService.goToNotes()
     })), /* @__PURE__ */ React.createElement(ShellContent, null, /* @__PURE__ */ React.createElement(ToastContainer, null), /* @__PURE__ */ React.createElement(Switch, null, routes)))));

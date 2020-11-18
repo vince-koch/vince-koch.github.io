@@ -1,7 +1,7 @@
 import React from "../../web_modules/react.js";
-import {Form} from "../../web_modules/react-bootstrap.js";
+import {Form, InputGroup} from "../../web_modules/react-bootstrap.js";
 import {toast} from "../../web_modules/react-toastify.js";
-import {FaCode, FaCopy} from "../../web_modules/react-icons/fa.js";
+import {FaCode, FaSearch, FaCopy} from "../../web_modules/react-icons/fa.js";
 import {Utilities as Utilities2} from "../Utilities/Utilities.js";
 import {StyleCopRules as StyleCopRules2} from "../Services/StyleCopRules.js";
 import {ShellTitle} from "./Shell.js";
@@ -23,12 +23,12 @@ export class StyleCopLookup extends React.Component {
     }, /* @__PURE__ */ React.createElement(FaCopy, null), "\xA0", rule)));
     return /* @__PURE__ */ React.createElement(React.Fragment, null, /* @__PURE__ */ React.createElement(ShellTitle, null, /* @__PURE__ */ React.createElement(FaCode, null), " StyleCop Lookup"), /* @__PURE__ */ React.createElement(Form.Group, {
       controlId: "ruleLookupTextBox"
-    }, /* @__PURE__ */ React.createElement(Form.Label, null, "Rule Lookup"), /* @__PURE__ */ React.createElement(Form.Control, {
+    }, /* @__PURE__ */ React.createElement(Form.Label, null, "Rule Lookup"), /* @__PURE__ */ React.createElement(InputGroup, null, /* @__PURE__ */ React.createElement(Form.Control, {
       type: "text",
       placeholder: "Rule ID or Description",
       value: this.state.searchText,
       onChange: (e) => this.handleSearchTextChange(e.target.value)
-    }), /* @__PURE__ */ React.createElement(Form.Text, null, this.state.matchingRules.length, " matching rules")), /* @__PURE__ */ React.createElement("ul", null, matchingItems));
+    }), /* @__PURE__ */ React.createElement(InputGroup.Append, null, /* @__PURE__ */ React.createElement(InputGroup.Text, null, /* @__PURE__ */ React.createElement(FaSearch, null)))), /* @__PURE__ */ React.createElement(Form.Text, null, this.state.matchingRules.length, " matching rules")), /* @__PURE__ */ React.createElement("ul", null, matchingItems));
   }
   handleSearchTextChange(searchText) {
     const matchingRules = StyleCopRules2.allRules.filter((item) => item.toUpperCase().indexOf(searchText.toUpperCase()) > -1);
