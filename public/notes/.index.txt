@@ -6,4 +6,5 @@ Icons.md
 Minimal nuspec file.md
 OwinAssemblies.html
 Settings.StyleCop
+VS Code F5 Debugging.md
 WCF.md
