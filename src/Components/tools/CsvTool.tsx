@@ -42,11 +42,12 @@ export function CsvTool() {
 
     return (
         <div className="flex flex-col w-full h-screen p-2">
-            <div className="flex flex-row">
-                <span className="text-2xl text-purple-400">CSV</span>
+            <div className="flex flex-row items-center">
+                <div className="text-2xl text-purple-400">CSV</div>
                 <span className="grow"></span>
                 
-                <input className="input input-bordered"
+                <label className="label">Header Rows:</label>
+                <input className="input input-bordered input-sm w-20"
                     type="number"
                     placeholder="Number of Header Rows"
                     title="Number of Header Rows"
@@ -55,7 +56,8 @@ export function CsvTool() {
                 
                 <span className="grow"></span>
                 
-                <input className="input input-bordered"
+                <label className="label">Delimiter:</label>
+                <input className="input input-bordered input-sm w-20"
                     type="text" 
                     placeholder="Delimiter"
                     title="Delimiter"
@@ -82,7 +84,7 @@ export function CsvTool() {
             <div {...dropZone.getRootProps()} className="flex flex-1">
                 <input {...dropZone.getInputProps()} />
                 <textarea
-                    className={`textarea textarea-secondary text-sm font-mono flex-1 m-2 ${wrapClass}`}
+                    className={`textarea text-sm font-mono flex-1 m-2 ${wrapClass}`}
                     onChange={e => setCsv(e.target.value)}
                     placeholder='Enter Delimited Text Here...'
                     value={topText}

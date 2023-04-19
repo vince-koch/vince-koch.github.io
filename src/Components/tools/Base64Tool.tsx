@@ -59,8 +59,8 @@ export function Base64Tool() {
 
     return (
         <div className="flex flex-col w-full h-screen p-2">
-            <div className="flex flex-row">
-                <span className="text-2xl text-purple-400">Base64</span>
+            <div className="flex flex-row items-center">
+                <div className="text-2xl text-purple-400">Base64</div>
                 <span className="grow"></span>
                 <div className="btn-group">
                     <button
@@ -81,7 +81,7 @@ export function Base64Tool() {
             <div {...dropZoneEncode.getRootProps()} className="flex flex-1">
                 <input {...dropZoneEncode.getInputProps()} />
                 <textarea
-                    className={`textarea textarea-secondary text-sm font-mono flex-1 m-2 ${wrapClass} ${topTextClasses}`}
+                    className={`textarea text-sm font-mono flex-1 m-2 ${wrapClass} ${topTextClasses}`}
                     onChange={e => handleEncodeBase64(e.target.value)}
                     placeholder='Enter Plain Text Here...'
                     value={topText}
@@ -93,7 +93,7 @@ export function Base64Tool() {
             <div {...dropZoneDecode.getRootProps()} className="flex flex-1">
                 <input {...dropZoneDecode.getInputProps()} />
                 <textarea
-                    className={`textarea textarea-secondary text-sm font-mono flex-1 m-2 ${wrapClass} ${bottomTextClasses}`}
+                    className={`textarea text-sm font-mono flex-1 m-2 ${wrapClass} ${bottomTextClasses}`}
                     onChange={e => handleDecodeBase64(e.target.value)}
                     placeholder='Enter Base64 Text Here...'
                     value={bottomText}

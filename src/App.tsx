@@ -8,9 +8,12 @@ import { Base64Tool } from '~/components/tools/Base64Tool'
 import { CsvTool } from '~/components/tools/CsvTool'
 import { JsonTool } from '~/components/tools/JsonTool'
 import { XmlTool } from '~/components/tools/XmlTool'
+import { StyleCopTool } from '~/components/tools/StyleCopTool'
 import { SideNav } from '~/components/SideNav'
-import { Home } from './components/Home'
-import { Notes } from './components/Notes'
+import { Home } from '~/components/Home'
+import { Notes } from '~/components/Notes'
+
+
 import 'App.css'
 
 export function App() {
@@ -25,6 +28,7 @@ export function App() {
                     <Route path="/tools/json" element={<JsonTool />} />
                     <Route path="/tools/xml" element={<XmlTool />} />
                     <Route path="/misc/notes" element={<Notes />} />
+                    <Route path="/misc/stylecop" element={<StyleCopTool />} />
                     <Route path="/" element={<Home />} />
                 </Routes>
             </div>

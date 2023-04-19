@@ -37,8 +37,8 @@ export function JsonTool() {
 
     return (
         <div className="flex flex-col w-full h-screen p-2">
-            <div className="flex flex-row">
-                <span className="text-2xl text-purple-400">JSON</span>
+            <div className="flex flex-row items-center">
+                <div className="text-2xl text-purple-400">JSON</div>
                 <span className="grow"></span>
                 <div className="btn-group">
                     <button
@@ -58,7 +58,7 @@ export function JsonTool() {
             <div {...dropZone.getRootProps()} className="flex flex-1">
                 <input {...dropZone.getInputProps()} />
                 <textarea
-                    className={`textarea textarea-secondary text-sm font-mono flex-1 m-2 ${wrapClass}`}
+                    className={`textarea text-sm font-mono flex-1 m-2 ${wrapClass}`}
                     onChange={e => setJson(e.target.value)}
                     placeholder='Enter Plain Text Here...'
                     value={topText}
@@ -67,7 +67,7 @@ export function JsonTool() {
             </div>
 
             <textarea
-                className={`textarea textarea-secondary text-sm font-mono flex-1 m-2 ${wrapClass} ${bottomTextClasses}`}
+                className={`textarea text-sm font-mono flex-1 m-2 ${wrapClass} ${bottomTextClasses}`}
                 placeholder='Pretty JSON Text Shows Up Here...'
                 readOnly={true}
                 value={bottomText}
