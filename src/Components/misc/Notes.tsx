@@ -67,7 +67,7 @@ export function Notes() {
             case ".txt":
             case undefined:
             default:
-                return noteText
+                return noteText ?? ''
         }
     }
 
