@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import MarkdownIt from 'markdown-it'
-import { Paths } from '~/utilities/Paths'
-import { Strings } from '~/utilities/Strings'
+import { Paths } from '@/utilities/Paths'
+import { Strings } from '@/utilities/Strings'
 import './github-markdown.css'
 
 export function Notes() {

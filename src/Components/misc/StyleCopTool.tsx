@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Clipboard } from '~/utilities/Clipboard'
+import { Clipboard } from '@/utilities/Clipboard'
 import { StyleCopRules } from './StyleCopRules'
 
 export function StyleCopTool() {

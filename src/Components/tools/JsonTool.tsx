@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { useDropZoneCallback } from '~/utilities/useDropZoneCallback'
-import { Strings } from '~/utilities/Strings'
+import { useDropZoneCallback } from '@/utilities/useDropZoneCallback'
+import { Strings } from '@/utilities/Strings'
 
 export function JsonTool() {
     const [isWrap, setIsWrap] = useState<boolean>(false)

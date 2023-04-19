@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import Papa from 'papaparse'
-import { useDropZoneCallback } from '~/utilities/useDropZoneCallback'
-import { CsvToolTable } from '~/components/tools/CsvToolTable'
+import { useDropZoneCallback } from '@/utilities/useDropZoneCallback'
+import { CsvToolTable } from '@/components/tools/CsvToolTable'
 
 export function CsvTool() {
     const [headerRowCount, setHeaderRowCount] = useState<number>(1)
