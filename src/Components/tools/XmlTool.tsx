@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDropZoneCallback } from '~/utilities/useDropZoneCallback'
-import { prettifyXml } from '~/utilities/strings'
+import { Strings } from '~/utilities/Strings'
 
 export function XmlTool() {
     const [isWrap, setIsWrap] = useState<boolean>(false)
@@ -21,7 +21,7 @@ export function XmlTool() {
                 return
             }
 
-            const pretty = prettifyXml(value)
+            const pretty = Strings.prettifyXml(value)
             setBottomText(pretty)
             setBottomTextClasses("")
         }

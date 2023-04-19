@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDropZoneCallback } from '~/utilities/useDropZoneCallback'
-import { prettifyJson } from '~/utilities/strings'
+import { Strings } from '~/utilities/Strings'
 
 export function JsonTool() {
     const [isWrap, setIsWrap] = useState<boolean>(false)
@@ -21,7 +21,7 @@ export function JsonTool() {
                 return
             }
 
-            const pretty = prettifyJson(value)
+            const pretty = Strings.prettifyJson(value)
             setBottomText(pretty)
             setBottomTextClasses("")
         }

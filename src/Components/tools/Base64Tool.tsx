@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useDropZoneCallback } from '~/utilities/useDropZoneCallback'
-import { decodeBase64, encodeBase64 } from '~/utilities/strings'
+import { Strings } from '~/utilities/Strings'
 
 export function Base64Tool() {
     const [isWrap, setIsWrap] = useState<boolean>(false)
@@ -25,7 +25,7 @@ export function Base64Tool() {
             setTopText(text)
             setTopTextClasses("")
 
-            const base64 = encodeBase64(text)
+            const base64 = Strings.encodeBase64(text)
             setBottomText(base64)
             setBottomTextClasses("")
         }
@@ -40,7 +40,7 @@ export function Base64Tool() {
             setBottomText(base64)
             setBottomTextClasses("")
 
-            const text = decodeBase64(base64)
+            const text = Strings.decodeBase64(base64)
             setTopText(text)
             setTopTextClasses("")
         }

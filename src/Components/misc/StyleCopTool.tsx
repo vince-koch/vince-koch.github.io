@@ -1,6 +1,6 @@
 import { useState } from 'react'
+import { Clipboard } from '~/utilities/Clipboard'
 import { StyleCopRules } from './StyleCopRules'
-import { clipboard } from '~/utilities/clipboard'
 
 export function StyleCopTool() {
     const [searchText, setSearchText] = useState<string>('')
@@ -19,7 +19,7 @@ export function StyleCopTool() {
     function handleCopyClick(rule: string) {
         const attributeText = StyleCopRules.getAttributeText(rule);
         if (attributeText) {
-            clipboard.copy(attributeText)
+            Clipboard.copy(attributeText)
         }
     }
 

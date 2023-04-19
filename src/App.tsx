@@ -1,24 +1,17 @@
-import {
-    BrowserRouter as Router,
-    Routes,
-    Route,
-    Link
-  } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { Base64Tool } from '~/components/tools/Base64Tool'
 import { CsvTool } from '~/components/tools/CsvTool'
 import { JsonTool } from '~/components/tools/JsonTool'
 import { XmlTool } from '~/components/tools/XmlTool'
-import { StyleCopTool } from '~/components/tools/StyleCopTool'
-import { SideNav } from '~/components/SideNav'
-import { Home } from '~/components/Home'
-import { Notes } from '~/components/Notes'
-
-
+import { StyleCopTool } from '~/components/misc/StyleCopTool'
+import { SideNav } from '~/components/layout/SideNav'
+import { Notes } from '~/components/misc/Notes'
+import { Home } from '~/components/layout/Home'
 import 'App.css'
 
 export function App() {
     return (
-        <Router>
+        <BrowserRouter>
             <div className='flex items-stretch min-h-screen'>
                 <SideNav />
                 
@@ -32,5 +25,5 @@ export function App() {
                     <Route path="/" element={<Home />} />
                 </Routes>
             </div>
-        </Router>)
+        </BrowserRouter>)
 }

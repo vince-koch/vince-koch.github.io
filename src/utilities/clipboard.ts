@@ -1,4 +1,4 @@
-export class clipboard {
+export class Clipboard {
     public static async copy(text: string): Promise<any> {
         if ('clipboard' in navigator) {
             return await navigator.clipboard.writeText(text);
