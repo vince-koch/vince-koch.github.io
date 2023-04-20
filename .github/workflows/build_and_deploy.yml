@@ -14,7 +14,8 @@ jobs:
     # Recommended if you intend to make multiple deployments in quick succession
     concurrency: ci-${{ github.ref }}
 
-    runs-on: ubuntu-latest
+    #runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
       - name: Checkout 🛎️
