@@ -25,7 +25,8 @@ export function SideNav() {
             <h2 className="text-3xl font-bold leading-normal mt-0 mb-2 text-purple-800">CookieCode</h2>
            
             <ul>
-                <LiNavLink to="/">Home</LiNavLink>
+                <LiNavLink to="">Home</LiNavLink>
+                <LiNavLink to="https://github.com/vince-koch/vince-koch.github.io">GitHub</LiNavLink>
             </ul>
 
             <section className="mt-4">
