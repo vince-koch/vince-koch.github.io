@@ -44,6 +44,7 @@ export function CsvTool() {
         <div className="flex flex-col w-full h-screen p-2">
             <div className="flex flex-row items-center">
                 <div className="text-2xl text-purple-400">CSV</div>
+                
                 <span className="grow"></span>
                 
                 <label className="label">Header Rows:</label>
@@ -66,6 +67,7 @@ export function CsvTool() {
                 />
 
                 <span className="grow"></span>
+
                 <div className="btn-group">
                     <button
                         title="Word Wrap"
