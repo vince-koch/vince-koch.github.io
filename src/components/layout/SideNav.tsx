@@ -22,15 +22,15 @@ export function SideNav() {
 
     return (
         <div className="bg-stone-900 px-5 shadow-teal-900 shadow-lg">
-            <h2 className="text-3xl font-bold leading-normal mt-0 mb-2 text-purple-800">CookieCode</h2>
+            {/* <h2 className="text-3xl font-bold leading-normal mt-0 mb-2 text-purple-800">CookieCode</h2> */}
            
-            <ul>
+            {/* <ul>
                 <LiNavLink to="">Home</LiNavLink>
                 <LiNavLink to="https://github.com/vince-koch/vince-koch.github.io">GitHub</LiNavLink>
-            </ul>
+            </ul> */}
 
             <section className="mt-4">
-                <hr className="border-purple-800" />
+                {/* <hr className="border-purple-800" /> */}
                 <h4 className="text-2xl text-purple-400">Tools</h4>
                 <ul className="ml-4">
                     <LiNavLink to="/tools/base64">Base64</LiNavLink>
@@ -46,6 +46,15 @@ export function SideNav() {
                 <ul className="ml-4">
                     <LiNavLink to="/misc/stylecop">Stylecop</LiNavLink>
                     <LiNavLink to="/misc/notes">Notes</LiNavLink>
+                    <LiNavLink to="/peers">Peers</LiNavLink>
+                </ul>
+            </section>
+
+            <section className="mt-4">
+                <hr className="border-purple-800" />
+                <h4 className="text-2xl text-purple-400">Links</h4>
+                <ul className="ml-4">
+                    <LiNavLink to="https://github.com/vince-koch/vince-koch.github.io">GitHub</LiNavLink>
                 </ul>
             </section>
         </div>)

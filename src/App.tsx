@@ -4,6 +4,7 @@ import { CsvTool } from '@/components/tools/CsvTool'
 import { JsonTool } from '@/components/tools/JsonTool'
 import { XmlTool } from '@/components/tools/XmlTool'
 import { StyleCopTool } from '@/components/misc/StyleCopTool'
+import { PeerComponent } from '@/components/peers/PeerComponent'
 import { SideNav } from '@/components/layout/SideNav'
 import { Notes } from '@/components/misc/Notes'
 import { Home } from '@/components/layout/Home'
@@ -22,6 +23,7 @@ export function App() {
                     <Route path="/tools/xml" element={<XmlTool />} />
                     <Route path="/misc/notes" element={<Notes />} />
                     <Route path="/misc/stylecop" element={<StyleCopTool />} />
+                    <Route path="/peers" element={<PeerComponent />} />
                     <Route path="/" element={<Home />} />
                 </Routes>
             </div>

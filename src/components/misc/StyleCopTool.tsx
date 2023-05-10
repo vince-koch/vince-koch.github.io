@@ -19,7 +19,7 @@ export function StyleCopTool() {
     function handleCopyClick(rule: string) {
         const attributeText = StyleCopRules.getAttributeText(rule);
         if (attributeText) {
-            Clipboard.copy(attributeText)
+            Clipboard.copyText(attributeText)
         }
     }
 
