@@ -1,0 +1,420 @@
+<!doctype html>
+<html>
+
+<head>
+	<title>D2 Character Sheet</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<script src="https://cdn.tailwindcss.com"></script>
+
+	<style>
+		.rate {
+			float: left;
+			height: 46px;
+			padding: 0 10px;
+		}
+		.rate:not(:checked) > input {
+			position:absolute;
+			top:-9999px;
+		}
+		.rate:not(:checked) > label {
+			float:right;
+			width:1em;
+			overflow:hidden;
+			white-space:nowrap;
+			cursor:pointer;
+			font-size:30px;
+			color:#ccc;
+		}
+		.rate:not(:checked) > label:before {
+			/* content: '★ '; */
+			content: '• ';
+		}
+		.rate > input:checked ~ label {
+			color: #ffc700;    
+		}
+		.rate:not(:checked) > label:hover,
+		.rate:not(:checked) > label:hover ~ label {
+			color: #deb217;  
+		}
+		.rate > input:checked + label:hover,
+		.rate > input:checked + label:hover ~ label,
+		.rate > input:checked ~ label:hover,
+		.rate > input:checked ~ label:hover ~ label,
+		.rate > label:hover ~ input:checked ~ label {
+			color: #c59b08;
+		}
+	</style>
+</head>
+
+<body class="bg-white dark:bg-slate-800 px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+	<div class="container">
+		<form class="grid grid-cols-5 gap-4">
+
+			<!-- Names-->
+			<fieldset class="bg-slate-400 rounded col-span-5">
+				<legend class="bg-slate-200 font-bold rounded ml-2 pl-1 pr-1">Names</legend>
+				<div class="grid grid-cols-2 gap-x-2 p-2">
+					<label>Character Name</label>
+					<label>Player Name</label>
+					<input type="text" name="characterName" placeholder="Character Name" />
+					<input type="text" name="playerName" placeholder="Player Name" />
+				</div>
+			</fieldset>
+
+			<!-- Basics-->
+			<fieldset class="bg-slate-400 rounded row-span-2">
+				<legend class="bg-slate-200 font-bold rounded ml-2 pl-1 pr-1">Basics</legend>
+				<div class="grid grid-cols-2 p-2">
+					<label>Race</label><input type="text" name="race" placeholder="Race" />
+					<label>Superclass</label><input type="text" name="superclass" placeholder="Superclass" />
+					<label>Class</label><input type="text" name="class" placeholder="Class" />
+					<label>Archetype</label><input type="text" name="archetype" placeholder="Archetype" />
+					<label>Level</label><input type="text" name="level" placeholder="Level" />
+					<label>Experience</label><input type="text" name="experience" placeholder="Experience" />
+					
+					<br class="col-span-2" />
+
+					<label class="col-span-2">Background</label>
+					<textarea class="col-span-2" type="text" name="background" placeholder="Background"></textarea>
+					
+					<label class="col-span-2">Foundations</label>
+					<textarea class="col-span-2" type="text" name="foundations0" placeholder="Foundation(s)"></textarea>
+				</div>
+			</fieldset>
+
+			<!-- stats -->
+			<fieldset class="bg-slate-400 rounded col-span-4">
+				<legend class="bg-slate-200 font-bold rounded ml-2 pl-1 pr-1">Stats</legend>
+				<div class="grid grid-cols-6 gap-x-2 p-2">
+					<label class="font-bold text-center">Strength</label>
+					<label class="font-bold text-center">Dexterity</label>
+					<label class="font-bold text-center">Constitution</label>
+					<label class="font-bold text-center">Intelligence</label>
+					<label class="font-bold text-center">Wisdom</label>
+					<label class="font-bold text-center">Charisma</label>
+
+					<input type="text" name="strength" placeholder="Value" class="text-center" />
+					<input type="text" name="dexterity" placeholder="Value" class="text-center" />
+					<input type="text" name="constitution" placeholder="Value" class="text-center" />
+					<input type="text" name="intelligence" placeholder="Value" class="text-center" />
+					<input type="text" name="wisdom" placeholder="Value" class="text-center" />
+					<input type="text" name="charisma" placeholder="Value" class="text-center" />
+
+					<input type="text" name="strengthModifier" placeholder="Modifier" class="text-4xl text-center" />
+					<input type="text" name="dexterityModifier" placeholder="Modifier" class="text-4xl text-center" />
+					<input type="text" name="constitutionModifier" placeholder="Modifier" class="text-4xl text-center" />
+					<input type="text" name="intelligenceModifier" placeholder="Modifier" class="text-4xl text-center" />
+					<input type="text" name="wisdomModifier" placeholder="Modifier" class="text-4xl text-center" />
+					<input type="text" name="charismaModifier" placeholder="Modifier" class="text-4xl text-center" />
+				</div>
+			</fieldset>
+
+			<!-- skills -->
+			<div class="col-span-3">
+				<fieldset class="bg-slate-400 rounded">
+					<legend class="bg-slate-200 font-bold rounded ml-2 pl-1 pr-1">Skills</legend>
+					<div class="grid grid-cols-3 p-2">
+						<div>
+							<div><input type="radio" name="hasAcrobatics" /><input type="text" name="acrobaticsModifier" class="w-8 ml-2 mr-2" /><label>Acrobatics (Dex)</label></div>
+							<div><input type="radio" name="hasAnimalHandling" /><input type="text" name="animalHandlingModifier" class="w-8 ml-2 mr-2" /><label>Animal Handling (Wis)</label></div>
+							<div><input type="radio" name="hasArcane" /><input type="text" name="arcaneModifier" class="w-8 ml-2 mr-2" /><label>Arcane (Int)</label></div>
+							<div><input type="radio" name="hasAthletics" /><input type="text" name="athleticsModifier" class="w-8 ml-2 mr-2" /><label>Athletics (Str)</label></div>
+							<div><input type="radio" name="hasDeception" /><input type="text" name="deceptionModifier" class="w-8 ml-2 mr-2" /><label>Deception (Cha)</label></div>
+							<div><input type="radio" name="hasHistory" /><input type="text" name="historyModifier" class="w-8 ml-2 mr-2" /><label>History (Int)</label></div>
+						</div>
+
+						<div>
+							<div><input type="radio" name="hasInsight"><input type="text" name="insightModifier" class="w-8 ml-2 mr-2" />Insight (Wis)</div>
+							<div><input type="radio" name="hasIntimidation"><input type="text" name="intimidationModifier" class="w-8 ml-2 mr-2" />Intimidation (Cha)</div>
+							<div><input type="radio" name="hasInvestigation"><input type="text" name="investigationModifier" class="w-8 ml-2 mr-2" />Investigation (Int)</div>
+							<div><input type="radio" name="hasMedicine"><input type="text" name="medicineModifier" class="w-8 ml-2 mr-2" />Medicine (Int)</div>
+							<div><input type="radio" name="hasNature"><input type="text" name="natureModifier" class="w-8 ml-2 mr-2" />Nature (Int)</div>
+							<div><input type="radio" name="hasPerception"><input type="text" name="perceptionModifier" class="w-8 ml-2 mr-2" />Perception (Wis)</div>
+							<div><input type="radio" name="hasPerformance"><input type="text" name="historyPerformance" class="w-8 ml-2 mr-2" />Performance (Cha)</div>
+						</div>
+					
+						<div>
+							<div><input type="radio" name="hasPersuasion"><input type="text" name="persuasionModifier" class="w-8 ml-2 mr-2" />Persuasion (Ch)</div>
+							<div><input type="radio" name="hasReligion"><input type="text" name="religionModifier" class="w-8 ml-2 mr-2" />Religion (Wis)</div>
+							<div><input type="radio" name="hasSleightOfHand"><input type="text" name="sleightOfHandModifier" class="w-8 ml-2 mr-2" />Sleight of Hand (Dex)</div>
+							<div><input type="radio" name="hasStealth"><input type="text" name="stealthModifier" class="w-8 ml-2 mr-2" />Stealth (Dex)</div>
+							<div><input type="radio" name="hasSurvival"><input type="text" name="survivalModifier" class="w-8 ml-2 mr-2" />Survival (Wis)</div>
+							<div><input type="radio" name="hasTechnology"><input type="text" name="technologyModifier" class="w-8 ml-2 mr-2" />Technology (Int)</div>
+						</div>
+					</div>
+				</fieldset>
+			</div>
+
+			<!-- saves -->
+			<fieldset class="bg-slate-400 rounded">
+				<legend class="bg-slate-200 font-bold rounded ml-2 pl-1 pr-1">Saves</legend>
+				<div class="p-2">
+					<div><input type="radio" name="hasStrengthSave"><input type="text" name="strengthSaveModifier" class="w-8 ml-2 mr-2" title="Strength Modifier" /><label>Strength</label></div>
+					<div><input type="radio" name="hasDexteritySave"><input type="text" name="dexteritySaveModifier" class="w-8 ml-2 mr-2" title="Dexterity Modifier" /><label>Dexterity</label></div>
+					<div><input type="radio" name="hasConstitutionSave"><input type="text" name="constitutionSaveModifier" class="w-8 ml-2 mr-2" title="Constitution Modifier" /><label>Constitution</label></div>
+					<div><input type="radio" name="hasIntelligenceSave"><input type="text" name="intelligenceSaveModifier" class="w-8 ml-2 mr-2" title="Intelligence Modifier" /><label>Intelligence</label></div>
+					<div><input type="radio" name="hasWisdomSave"><input type="text" name="wisdomSaveModifier" class="w-8 ml-2 mr-2" title="Wisdom Modifier" /><label>Wisdom</label></div>
+					<div><input type="radio" name="hasCharismaSave"><input type="text" name="charismaSaveModifier" class="w-8 ml-2 mr-2" title="Charisma Modifier" /><label>Charisma</label></div>
+				</div>
+			</fieldset>
+
+			<div class="row-span-4">
+				<!-- vitals -->
+				<fieldset class="bg-slate-400 rounded">
+					<legend class="bg-slate-200 font-bold rounded ml-2 pl-1 pr-1">Vitals</legend>
+					
+					<div class="grid grid-cols-2 gap-x-2 p-2">
+						<label class="font-bold text-center">Proficency Bonus</label>
+  						<label class="font-bold text-center">Inspiration</label>
+						<input type="text" name="proficencyBonous" class="text-4xl text-center" />
+						<input type="text" name="inspiration" class="text-4xl text-center" />
+					</div>
+
+					<div class="grid grid-cols-3 gap-x-2 p-2">
+						<label class="font-bold text-center">Health</label>
+						<label class="font-bold text-center">Shields</label>
+						<label class="font-bold text-center">Overshields</label>
+
+						<input type="text" name="healthMax" placeholder="Max" class="text-center" />
+						<input type="text" name="shieldsMax" placeholder="Max" class="text-center" />
+						<input type="text" name="overShieldsMax" placeholder="Max" class="text-center" />
+
+						<input type="text" name="healthCurrent" placeholder="Now" class="text-4xl text-center" />
+						<input type="text" name="shieldsCurrent" placeholder="Now" class="text-4xl text-center" />
+						<input type="text" name="overShieldsCurrent" placeholder="Now" class="text-4xl text-center" />
+					</div>
+
+					<div class="grid grid-cols-3 gap-x-2 p-2">
+						<label class="font-bold text-center">Armor Class</label>
+						<label class="font-bold text-center">Initiative</label>
+						<label class="font-bold text-center">Speed</label>
+						<input type="text" name="armorClass" class="text-4xl text-center" />
+						<input type="text" name="initiative" class="text-4xl text-center" />
+						<input type="text" name="speed" class="text-4xl text-center" />
+					</div>
+				</fieldset>
+
+				<!-- equipped items -->
+				<fieldset class="bg-slate-400 rounded mt-4">
+					<legend class="bg-slate-200 font-bold rounded ml-2 pl-1 pr-1">Equipped Items</legend>
+					<div class="grid grid-cols-1 gap-2 p-2">
+						<input type="text" name="equippedItems.0" />
+						<input type="text" name="equippedItems.1" />
+						<input type="text" name="equippedItems.2" />
+						<input type="text" name="equippedItems.3" />
+						<input type="text" name="equippedItems.4" />
+						<input type="text" name="equippedItems.5" />
+						<input type="text" name="equippedItems.6" />
+						<input type="text" name="equippedItems.7" />
+						<input type="text" name="equippedItems.8" />
+						<input type="text" name="equippedItems.9" />
+					</div>
+				</fieldset>
+
+				<!-- proficencies -->
+				<fieldset class="bg-slate-400 rounded mt-4">
+					<legend class="bg-slate-200 font-bold rounded ml-2 pl-1 pr-1">Proficencies</legend>
+					<div class="grid grid-cols-1 gap-2 p-2">
+						<input type="text" name="proficencies.0" />
+						<input type="text" name="proficencies.1" />
+						<input type="text" name="proficencies.2" />
+						<input type="text" name="proficencies.3" />
+						<input type="text" name="proficencies.4" />
+						<input type="text" name="proficencies.5" />
+						<input type="text" name="proficencies.6" />
+						<input type="text" name="proficencies.7" />
+						<input type="text" name="proficencies.8" />
+					</div>
+				</fieldset>
+			</div>
+
+			<!-- misc -->
+			<fieldset class="bg-slate-400 rounded">
+				<legend class="bg-slate-200 font-bold rounded ml-2 pl-1 pr-1">Misc</legend>
+				<div class="grid grid-cols-1 gap-2 p-2">
+					<div>
+						<label>Shield Recharge Roll</label>
+						<input type="text" name="shieldRechargeRoll" />
+					</div>
+				
+					<fieldset>
+						<legend>Exhaustion</legend>
+						<div class="rate">
+							<input type="radio" name="exhaustion" value="1" id="exhaustion1" /><label for="exhaustion1" title="text"></label>
+							<input type="radio" name="exhaustion" value="2" id="exhaustion2" /><label for="exhaustion2" title="text"></label>
+							<input type="radio" name="exhaustion" value="3" id="exhaustion3" /><label for="exhaustion3" title="text"></label>
+							<input type="radio" name="exhaustion" value="4" id="exhaustion4" /><label for="exhaustion4" title="text"></label>
+							<input type="radio" name="exhaustion" value="5" id="exhaustion5" /><label for="exhaustion5" title="text"></label>
+							<input type="radio" name="exhaustion" value="6" id="exhaustion6" /><label for="exhaustion6" title="text"></label>
+						</div>
+					</fieldset>
+
+					<fieldset>
+						<legend>RTL Saves</legend>
+						<div class="pl-8">
+							<label>Success</label>
+							<div class="inline-block">
+								<div class="rate">
+									<input type="radio" name="rtlSaveSuccesses" value="1" id="rtlSaveSuccesses1"/><label for="rtlSaveSuccesses1" title="text"></label>
+									<input type="radio" name="rtlSaveSuccesses" value="2" id="rtlSaveSuccesses2"/><label for="rtlSaveSuccesses2" title="text"></label>
+									<input type="radio" name="rtlSaveSuccesses" value="3" id="rtlSaveSuccesses3"/><label for="rtlSaveSuccesses3" title="text"></label>
+								</div>
+							</div>
+						</div>
+						<div class="pl-8 align-middle">
+							<label>Failure</label>
+							<div class="inline-block">
+								<div class="rate">
+									<input type="radio" name="rtlSaveFailures" value="1" id="rtlSaveFailures1"/><label for="rtlSaveFailures1" title="text"></label>
+									<input type="radio" name="rtlSaveFailures" value="2" id="rtlSaveFailures2"/><label for="rtlSaveFailures2" title="text"></label>
+									<input type="radio" name="rtlSaveFailures" value="3" id="rtlSaveFailures3"/><label for="rtlSaveFailures3" title="text"></label>
+								</div>
+							</div>
+						</div>
+					</fieldset>
+				</div>
+			</fieldset>
+
+			<!-- resources -->
+			<div class="col-span-3">
+				<fieldset class="bg-slate-400 rounded">
+					<legend class="bg-slate-200 font-bold rounded ml-2 pl-1 pr-1">Resources</legend>
+					<div class="grid grid-cols-1 gap-2 p-2">
+						<table>
+							<thead>
+								<tr>
+									<td>Name</td>
+									<td>Uses</td>
+									<td>Recovered On</td>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><input type="text" name="resources.0.name" /></td>
+									<td><input type="text" name="resources.0.usesCurrent" /> / <input type="text" name="resources.0.usesMax" /></td>
+									<td><input type="text" name="resources.0.recoveredOn" /></td>
+								</tr>
+								<tr>
+									<td><input type="text" name="resources.1.name" /></td>
+									<td><input type="text" name="resources.1.usesCurrent" /> / <input type="text" name="resources.0.usesMax" /></td>
+									<td><input type="text" name="resources.1.recoveredOn" /></td>
+								</tr>
+								<tr>
+									<td><input type="text" name="resources.2.name" /></td>
+									<td><input type="text" name="resources.2.usesCurrent" /> / <input type="text" name="resources.0.usesMax" /></td>
+									<td><input type="text" name="resources.2.recoveredOn" /></td>
+								</tr>
+								<tr>
+									<td><input type="text" name="resources.3.name" /></td>
+									<td><input type="text" name="resources.3.usesCurrent" /> / <input type="text" name="resources.0.usesMax" /></td>
+									<td><input type="text" name="resources.3.recoveredOn" /></td>
+								</tr>
+								<tr>
+									<td><input type="text" name="resources.4.name" /></td>
+									<td><input type="text" name="resources.4.usesCurrent" /> / <input type="text" name="resources.0.usesMax" /></td>
+									<td><input type="text" name="resources.4.recoveredOn" /></td>
+								</tr>
+								<tr>
+									<td><input type="text" name="resources.5.name" /></td>
+									<td><input type="text" name="resources.5.usesCurrent" /> / <input type="text" name="resources.0.usesMax" /></td>
+									<td><input type="text" name="resources.5.recoveredOn" /></td>
+								</tr>
+								<tr>
+									<td><input type="text" name="resources.6.name" /></td>
+									<td><input type="text" name="resources.6.usesCurrent" /> / <input type="text" name="resources.0.usesMax" /></td>
+									<td><input type="text" name="resources.6.recoveredOn" /></td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</fieldset>
+			</div>
+
+			<!-- weapons (0) -->
+			<fieldset class="bg-slate-400 rounded col-span-4">
+				<legend class="bg-slate-200 font-bold rounded ml-2 pl-1 pr-1">Weapon</legend>
+				<div class="grid grid-cols-12 gap-2 p-2">
+					<label>Name</label>
+					<input class="col-span-11" type="text" name="weapons.0.name" placeholder="Name" />
+
+					<label>Attack Modifier</label>
+					<input class="col-span-3" type="text" name="weapons.0.attackModifier" placeholder="Attack Modifier" />
+
+					<label>Damage</label>
+					<input class="col-span-7" type="text" name="weapons.0.damage" placeholder="Damage" />
+
+					<label>Properties</label>
+					<input class="col-span-11" type="text" name="weapons.0.properties" placeholder="Properties" />
+
+					<label>Range/Scope</label>
+					<input class="col-span-5" type="text" name="weapons.0.rangeScope" placeholder="Range/Scope" />
+
+					<label>Shot Capacity</label>
+					<input class="col-span-5" type="text" name="weapons.0.shotCapacity" placeholder="Shot Capacity" />
+
+					<input type="text" name="weapons.0.slot1" placeholder="Slot 1" class="col-span-4" />
+					<input type="text" name="weapons.0.slot2" placeholder="Slot 2" class="col-span-4" />
+					<input type="text" name="weapons.0.slot2" placeholder="Slot 3" class="col-span-4" />
+				</div>
+			</fieldset>
+
+			<!-- weapons (2) -->
+			<fieldset class="bg-slate-400 rounded col-span-4">
+				<legend class="bg-slate-200 font-bold rounded ml-2 pl-1 pr-1">Weapon</legend>
+				<div class="grid grid-cols-12 gap-2 p-2">
+					<label>Name</label>
+					<input class="col-span-11" type="text" name="weapons.1.name" placeholder="Name" />
+
+					<label>Attack Modifier</label>
+					<input class="col-span-3" type="text" name="weapons.1.attackModifier" placeholder="Attack Modifier" />
+
+					<label>Damage</label>
+					<input class="col-span-7" type="text" name="weapons.1.damage" placeholder="Damage" />
+
+					<label>Properties</label>
+					<input class="col-span-11" type="text" name="weapons.1.properties" placeholder="Properties" />
+
+					<label>Range/Scope</label>
+					<input class="col-span-5" type="text" name="weapons.1.rangeScope" placeholder="Range/Scope" />
+
+					<label>Shot Capacity</label>
+					<input class="col-span-5" type="text" name="weapons.1.shotCapacity" placeholder="Shot Capacity" />
+
+					<input type="text" name="weapons.1.slot1" placeholder="Slot 1" class="col-span-4" />
+					<input type="text" name="weapons.1.slot2" placeholder="Slot 2" class="col-span-4" />
+					<input type="text" name="weapons.1.slot2" placeholder="Slot 3" class="col-span-4" />
+				</div>
+			</fieldset>
+
+			<!-- weapons (3) -->
+			<fieldset class="bg-slate-400 rounded col-span-4">
+				<legend class="bg-slate-200 font-bold rounded ml-2 pl-1 pr-1">Weapon</legend>
+				<div class="grid grid-cols-12 gap-2 p-2">
+					<label>Name</label>
+					<input class="col-span-11" type="text" name="weapons.2.name" placeholder="Name" />
+
+					<label>Attack Modifier</label>
+					<input class="col-span-3" type="text" name="weapons.2.attackModifier" placeholder="Attack Modifier" />
+
+					<label>Damage</label>
+					<input class="col-span-7" type="text" name="weapons.2.damage" placeholder="Damage" />
+
+					<label>Properties</label>
+					<input class="col-span-11" type="text" name="weapons.2.properties" placeholder="Properties" />
+
+					<label>Range/Scope</label>
+					<input class="col-span-5" type="text" name="weapons.2.rangeScope" placeholder="Range/Scope" />
+
+					<label>Shot Capacity</label>
+					<input class="col-span-5" type="text" name="weapons.2.shotCapacity" placeholder="Shot Capacity" />
+
+					<input type="text" name="weapons.2.slot1" placeholder="Slot 1" class="col-span-4" />
+					<input type="text" name="weapons.2.slot2" placeholder="Slot 2" class="col-span-4" />
+					<input type="text" name="weapons.2.slot2" placeholder="Slot 3" class="col-span-4" />
+				</div>
+			</fieldset>
+		</form>
+	</div>
+</body>
+</html>
